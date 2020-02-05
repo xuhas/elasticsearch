@@ -22,7 +22,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: test-reports
-        path: parent-join/build/reports/tests/test/index.html
+        path: modules/parent-join/build/reports/tests/test/index.html
       
     - name: Test percolator modue
       run: gradle :modules:percolator:test
