@@ -17,9 +17,6 @@ jobs:
       run: chmod +x gradlew
     - name: Test modules
       run: cd modules/
-          gradle :modules:parent-join:test \
-          :modules:percolator:test \
-          :modules:ingest-common:test \
-          :modules:lang-expression:test
+          gradle :modules:parent-join:test :modules:percolator:test :modules:ingest-common:test :modules:lang-expression:test
 
 
