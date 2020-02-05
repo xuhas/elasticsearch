@@ -15,13 +15,15 @@ jobs:
       run: chmod +x gradlew
     - name: Change Directory
       run: cd modules/
+      
     - name: Test parent-join module
       run: gradle :modules:parent-join:test
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: test repots
-        path: /parent-join/build/reports/test/test/index.html
+        name: test-reports
+        path: parent-join/build/reports/tests/test/index.html
+      
     - name: Test percolator modue
       run: gradle :modules:percolator:test
     - name: Test ingest-common module
