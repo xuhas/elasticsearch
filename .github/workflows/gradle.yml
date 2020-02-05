@@ -3,10 +3,8 @@ name: Java CI
 on: [push]
 
 jobs:
-  build:
-
+  build_and_test:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 13
@@ -17,7 +15,18 @@ jobs:
       run: chmod +x gradlew
     - name: Change Directory
       run: cd modules/
-    - name: Run tests for modules
-      run: gradle :modules:parent-join:test :modules:percolator:test :modules:ingest-common:test :modules:lang-expression:test
+    - name: Test parent-join module
+      run: gradle :modules:parent-join:test
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: test repots
+        path: /parent-join/build/reports/test/test/index.html
+    - name: Test percolator modue
+      run: gradle :modules:percolator:test
+    - name: Test ingest-common module
+      run: gradle :modules:ingest-common:test
+    - name: Test lang-expression module
+      run: gradle :modules:lang-expression:test
 
 
