@@ -26,9 +26,27 @@ jobs:
       
     - name: Test percolator modue
       run: gradle :modules:percolator:test
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-reports
+        path: modules/percolator/build/reports/tests/test/index.html
+      
     - name: Test ingest-common module
       run: gradle :modules:ingest-common:test
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-reports
+        path: modules/ingest-common/build/reports/tests/test/index.html
+      
     - name: Test lang-expression module
       run: gradle :modules:lang-expression:test
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-reports
+        path: modules/lang-expression/build/reports/tests/test/index.html
+      
 
 
