@@ -15,7 +15,11 @@ jobs:
         java-version: 13
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Change dreictory for modules
+    - name: Test modules
       run: cd modules/
-    - name: Run tests with Gradle
-      run: gradle test
+      run: gradle :modules:parent-join:test
+      run: gradle :modules:percolator:test
+      run: gradle :modules:ingest-common:test
+      run: gradle :modules:lang-expression:test
+
+
