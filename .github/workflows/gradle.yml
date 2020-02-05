@@ -22,7 +22,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: parent-join-test-reports
-        path: modules/parent-join/build/reports/tests/test/index.html
+        path: modules/parent-join/build/reports/tests/test
       
     - name: Test percolator modue
       run: gradle :modules:percolator:test
@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: percolator-test-reports
-        path: modules/percolator/build/reports/tests/test/index.html
+        path: modules/percolator/build/reports/tests/test
       
     - name: Test ingest-common module
       run: gradle :modules:ingest-common:test
@@ -38,7 +38,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: ingest-common-test-reports
-        path: modules/ingest-common/build/reports/tests/test/index.html
+        path: modules/ingest-common/build/reports/tests/test
       
     - name: Test lang-expression module
       run: gradle :modules:lang-expression:test
@@ -46,7 +46,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: lang-expression-test-reports
-        path: modules/lang-expression/build/reports/tests/test/index.html
+        path: modules/lang-expression/build/reports/tests/test
       
 
 
