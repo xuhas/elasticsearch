@@ -48,5 +48,21 @@ jobs:
         name: lang-expression-test-reports
         path: modules/lang-expression/build/reports/tests/test
       
-
+    - name: Coverage monitor
+      uses: slavcodev/coverage-monitor-action@1.0.1
+      with:
+        # The GITHUB_TOKEN secret.
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        # Path to Clover XML file.
+        clover_file: "logs/clover.xml"
+        # Whether check the coverage thresholds.
+        # check: # default is true
+        # Whether comment the coverage report.
+        # comment: # default is true
+        # Mark the build as unstable when coverage is less than this threshold.
+        # threshold_alert: # optional, default is 50
+        # Warning when coverage is less than this threshold.
+        # threshold_warning: # optional, default is 90
+        # A string label to differentiate this status from the status of other systems.
+        # status_context: # optional, default is Coverage Report
 
