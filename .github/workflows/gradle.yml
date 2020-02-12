@@ -16,29 +16,29 @@ jobs:
     - name: Change Directory
       run: cd modules/
       
-    - name: Test parent-join module
-      run: gradle :modules:parent-join:test
+    - name: Test ingest-geoip module
+      run: gradle :modules:ingest-geoip:test
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: parent-join-test-reports
-        path: modules/parent-join/build/reports/tests/test
+        name: ingest-geoip-test-reports
+        path: modules/ingest-geoip/build/reports/tests/test
       
-    - name: Test percolator modue
-      run: gradle :modules:percolator:test
-    - name: Archive production artifacts
+    - name: Test rank-eval modue
+      run: gradle :modules:rank-eval:test
+    - name: Archive rank-eval artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: percolator-test-reports
-        path: modules/percolator/build/reports/tests/test
+        name: rank-eval-test-reports
+        path: modules/rank-eval/build/reports/tests/test
       
-    - name: Test ingest-common module
-      run: gradle :modules:ingest-common:test
+    - name: Test repository-url module
+      run: gradle :modules:repository-url:test
     - name: Archive production artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: ingest-common-test-reports
-        path: modules/ingest-common/build/reports/tests/test
+        name: repository-url-test-reports
+        path: modules/repository-url/build/reports/tests/test
       
     - name: Test lang-expression module
       run: gradle :modules:lang-expression:test
