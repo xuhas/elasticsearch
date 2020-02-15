@@ -47,3 +47,11 @@ jobs:
       with:
         name: lang-expression-test-reports
         path: modules/lang-expression/build/reports/tests/test
+    
+    - name: Test systemd module
+      run: gradle :module:systemd:test
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v1
+      with: 
+        name: systemd-test-reports
+        path: modules/systemd/build/reports/tests/test
