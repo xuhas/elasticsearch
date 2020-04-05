@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  master:
+    image: elasticsearch:2.4
+    command: elasticsearch --network.host=0 --node.master=true --cluster.name=cluster-01 --node.name="Master of Disaster"
+    volumes:
+      - ./elasticsearch/config/:/usr/share/elasticsearch/config/
+      - ./elasticsearch/logs/:/usr/share/elasticsearch/logs/
+    ports:
+      - "9200:9200"
+    restart: always
+    container_name: es_master
+  node:
+    image: elasticsearch:2.4
+    command: elasticsearch --network.host=0 --cluster.name=cluster-01 --discovery.zen.ping.unicast.hosts=es_master
+    restart: always
+    volumes:
+      - ./elasticsearch/config/:/usr/share/elasticsearch/config/
+      - ./elasticsearch/logs/:/usr/share/elasticsearch/logs/
+    depends_on:
+      - master
+    links:
+      - master:es_master
+networks:
+  default:
+  external:
+    name: es-network
